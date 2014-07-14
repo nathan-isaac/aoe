@@ -6,8 +6,4 @@ Route::get('/', function()
 });
 
 Route::resource("teams", "TeamsController",
-    ['only' => [
-            'create',
-            'show'
-        ]
-    ]);
+    ['only' => [ 'create', 'store', 'show' ]]);
