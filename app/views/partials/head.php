@@ -2,6 +2,7 @@
 <meta name="APP_ENV" content="<?php echo App::environment(); ?>"/>
 
 <title>AoE Team and Civ Generator</title>
+<meta name="description" content="A custom Age of Empires Team and Civilization Generator."/>
 
 <!-- Vendor -->
 <?php echo HTML::style('vendor/font-awesome/css/font-awesome.min.css'); ?>

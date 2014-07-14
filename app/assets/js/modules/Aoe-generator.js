@@ -112,6 +112,7 @@ generator.controller('TeamsController', function($scope, $http) {
         $scope.generateRandomTeams();
 
         $('.view-link').hide();
+        $('.view-link-container').hide();
     };
 
     /**
@@ -121,6 +122,7 @@ generator.controller('TeamsController', function($scope, $http) {
         $scope.playRandomTaunt();
         $scope.generateRandomTeams();
 
+        $('.view-link-container').hide();
         $('.share-link').show();
     };
 
@@ -192,7 +194,7 @@ generator.controller('TeamsController', function($scope, $http) {
             $scope.teams.push(team);
         };
 
-        console.log($scope.teams);
+//        console.log($scope.teams);
     };
 
     $scope.shareSession = function() {
@@ -204,7 +206,7 @@ generator.controller('TeamsController', function($scope, $http) {
             success(function(data, status) {
                 /*$scope.status = status;
                  $scope.data = data;*/
-                console.log(data);
+//                console.log(data);
 
                 $scope.hideShareBtn();
                 $scope.showViewLink(data.session_link);
@@ -212,7 +214,7 @@ generator.controller('TeamsController', function($scope, $http) {
             error(function(data, status) {
                 /*$scope.data = data || "Request failed";
                  $scope.status = status;*/
-                console.log(data || "Request failed");
+//                console.log(data || "Request failed");
             });
     };
 
@@ -221,6 +223,7 @@ generator.controller('TeamsController', function($scope, $http) {
     };
 
     $scope.showViewLink = function(linkValue) {
+        $('.view-link-container').show();
         $('.view-link').show();
         $('.view-link').val(linkValue);
     };
