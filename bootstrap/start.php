@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function() {
 
-    if(isset($_SERVER['HTTP_HOST']) AND $_SERVER['HTTP_HOST'] == 'aoe.njisaac.com')
+    if(gethostname() == 'web436.webfaction.com')
     {
         return 'production';
     }
