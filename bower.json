@@ -1,0 +1,43 @@
+{
+  "name": "aoe-l4",
+  "dependencies": {
+    "jeet": "https://github.com/mojotech/jeet.git",
+    "jquery": "1.11.0",
+    "angular": "1.2.19",
+    "breakpoint-sass": "~2.4.2",
+    "font-awesome": "~4.0.3",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.1",
+    "normalize-css": "~3.0.1"
+  },
+  "preen": {
+    "jeet": [
+      "**/**/*.scss"
+    ],
+    "jquery": [
+      "dist/*.js"
+    ],
+    "angular": [
+      "*.js"
+    ],
+    "breakpoint-sass": [
+      "**/**/**/**/*.scss"
+    ],
+    "normalize-css": [
+      "*.css"
+    ],
+    "font-awesome": [
+      "css/*",
+      "fonts/*"
+    ],
+    "respond": [
+      "dest/*"
+    ],
+    "html5shiv": [
+      "dist/*"
+    ],
+    "sassy-maps": [
+      "sass/**/*.scss"
+    ]
+  }
+}
