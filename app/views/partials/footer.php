@@ -254,3 +254,5 @@
         };
     });
 </script>
+
+<?php //include_once __DIR__ . "/analytics-tracking.php"; ?>

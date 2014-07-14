@@ -24,11 +24,15 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment(function() {
 
-	'local' => array('homestead'),
+    if(isset($_SERVER['HTTP_HOST']) AND $_SERVER['HTTP_HOST'] == 'aoe.njisaac.com')
+    {
+        return 'production';
+    }
 
-));
+    return getenv('APP_ENV') ?: 'local';
+});
 
 /*
 |--------------------------------------------------------------------------

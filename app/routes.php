@@ -5,4 +5,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::resource("teams", "TeamsController");
+Route::resource("teams", "TeamsController",
+    ['only' => [
+            'create',
+            'show'
+        ]
+    ]);
