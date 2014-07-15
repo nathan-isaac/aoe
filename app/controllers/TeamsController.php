@@ -34,8 +34,12 @@ class TeamsController extends \BaseController {
 	{
         // ref: http://stackoverflow.com/questions/1846202/php-how-to-generate-a-random-unique-alphanumeric-string
         // ref: http://stackoverflow.com/questions/853813/how-to-create-a-random-string-using-php
-        $session_id = substr(md5(uniqid(rand(), true)), 0, 20);
+        // $session_id = substr(md5(uniqid(rand(), true)), 0, 20);
         $input = Input::all();
+
+        $data = $input;
+        $data['time'] = time();
+        $session_id = md5(serialize($data));
 
         foreach($input as $team_id => $players)
         {
