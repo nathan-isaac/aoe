@@ -10,8 +10,8 @@
                 <div class="level-right">
                     <div class="level-item">
                         <p class="control">
-                            <span class="icon">
-                                <i class="fa fa-volume-up"></i>
+                            <span class="icon" @click="soundOn = !soundOn">
+                                <i class="fa" :class="{'fa-volume-up': soundOn, 'fa-volume-off': !soundOn}"></i>
                             </span>
                         </p>
                     </div>
@@ -139,7 +139,8 @@
                 numberOfTeams: 2,
                 teamNumbers: [
                     2,3,4,5,6,7,8
-                ]
+                ],
+                soundOn: false
             }
         },
         mounted() {
@@ -167,6 +168,13 @@
                 });
 
                 this.teams = _.chunk(teamPlayers, this.players.length / this.numberOfTeams);
+
+                if (this.soundOn) {
+                    this.playTaunt();
+                }
+            },
+            playTaunt() {
+                new Audio('/audio/taunts/'+_.random(1, 38)+'.mp3').play();
             }
         }
     }
