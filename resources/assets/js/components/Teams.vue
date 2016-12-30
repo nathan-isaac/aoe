@@ -4,11 +4,11 @@
 
             <nav class="level">
                 <!-- Left side -->
-                <div class="level-left"></div>
+                <div class="level-left is-hidden-mobile"></div>
 
                 <!-- Right side -->
                 <div class="level-right">
-                    <div class="level-item">
+                    <div class="level-item is-hidden-mobile">
                         <p class="control">
                             <span class="icon is-clickable" @click="soundOn = !soundOn">
                                 <i class="fa" :class="{'fa-volume-up': soundOn, 'fa-volume-off': !soundOn}"></i>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="level-item">
                         <p class="control">
-                            <span class="select">
+                            <span class="select is-fullwidth">
                                 <select v-model="numberOfTeams">
                                     <option v-for="number in teamNumbers" :value="number">
                                         {{ number }} team
@@ -28,7 +28,7 @@
                     </div>
                     <div class="level-item">
                         <p class="control">
-                            <button class="button is-primary" @click="generateTeams()">Generate</button>
+                            <button class="button is-primary is-fullwidth" @click="generateTeams()">Generate</button>
                         </p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="panel-block" v-for="(player, index) in players">
-                            <div class="columns is-gapless">
+                            <div class="columns is-mobile is-gapless">
                                 <div class="column" v-text="player"></div>
                                 <div class="column is-2 has-text-right">
                                     <span class="icon is-small is-clickable" @click="removePlayer(index)">
@@ -76,7 +76,7 @@
                         <h1 class="title">Teams</h1>
 
                         <div class="columns is-multiline">
-                            <div class="column is-half-mobile" v-for="(team, index) in teams">
+                            <div class="column is-half-tablet is-one-third-desktop" v-for="(team, index) in teams">
                                 <div class="panel">
                                     <p class="panel-heading">
                                         Team {{ index + 1 }}
