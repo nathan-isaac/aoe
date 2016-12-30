@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="panel-block" v-for="(civilization, index) in civilizations">
-                            <div class="columns is-gapless">
+                            <div class="columns is-mobile is-gapless">
                                 <div class="column" v-text="civilization"></div>
                                 <div class="column is-2 has-text-right">
                                     <span class="icon is-small is-clickable" @click="removeCivilization(index)">
