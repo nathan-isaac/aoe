@@ -1,95 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+@section('content')
+    <section class="hero is-primary is-small">
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Age of Empires 2 Team Generator
+                </h1>
+                <h2 class="subtitle">
+                    Generate random teams with random civilizations for Age of Empires 2.
+                </h2>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+
+    <nav class="nav has-shadow">
+        <div class="container">
+            <div class="nav-left">
+                <a class="nav-item is-tab is-active">Teams</a>
+                <a class="nav-item is-tab">Civilizations</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+
+            <nav class="level">
+                <!-- Left side -->
+                <div class="level-left">
+
+                </div>
+
+
+                <!-- Right side -->
+                <div class="level-right">
+                    <div class="level-item">
+                        <p class="control">
+                            <span class="icon">
+                                <i class="fa fa-volume-up"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="level-item">
+                        <p class="control">
+                            <span class="select">
+                                <select>
+                                    <option>2 teams</option>
+                                    <option>3 teams</option>
+                                    <option>4 teams</option>
+                                    <option>5 teams</option>
+                                    <option>6 teams</option>
+                                    <option>7 teams</option>
+                                    <option>8 teams</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="level-item">
+                        <p class="control">
+                            <button class="button is-primary">Generate</button>
+                        </p>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="columns">
+                <div class="column is-one-third">
+
+                    <div class="panel">
+                        <p class="panel-heading">
+                            Players
+                        </p>
+
+                        <div class="panel-block">
+                            <div class="columns is-gapless">
+                                <div class="column">
+                                    Nathan
+                                </div>
+                                <div class="column is-2 has-text-right">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-trash"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-block">
+                            <div class="control is-grouped">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text" placeholder="Player name">
+                                </p>
+                                <p class="control">
+                                    <a class="button is-primary is-outlined">
+                                        Add
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="column">
+
+                    <div class="box">
+                        <h1 class="title">Teams</h1>
+
+                        <div class="columns is-multiline">
+                            <div class="column is-one-quarter">
+                                <div class="panel">
+                                    <p class="panel-heading">
+                                        Team 1
+                                    </p>
+
+                                    <div class="panel-block">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <strong>Nathan</strong>
+                                            </div>
+                                            <div class="column has-text-right">
+                                                Civ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="column is-one-quarter">
+                                <div class="panel">
+                                    <p class="panel-heading">
+                                        Team 2
+                                    </p>
+
+                                    <div class="panel-block">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <strong>Rochelle</strong>
+                                            </div>
+                                            <div class="column has-text-right">
+                                                Civ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="column is-one-quarter">
+                                <div class="panel">
+                                    <p class="panel-heading">
+                                        Team 2
+                                    </p>
+
+                                    <div class="panel-block">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <strong>Rochelle</strong>
+                                            </div>
+                                            <div class="column has-text-right">
+                                                Civ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="column is-one-quarter">
+                                <div class="panel">
+                                    <p class="panel-heading">
+                                        Team 2
+                                    </p>
+
+                                    <div class="panel-block">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <strong>Rochelle</strong>
+                                            </div>
+                                            <div class="column has-text-right">
+                                                Civ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="column is-one-quarter">
+                                <div class="panel">
+                                    <p class="panel-heading">
+                                        Team 2
+                                    </p>
+
+                                    <div class="panel-block">
+                                        <div class="columns is-mobile">
+                                            <div class="column">
+                                                <strong>Rochelle</strong>
+                                            </div>
+                                            <div class="column has-text-right">
+                                                Civ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+@endsection
