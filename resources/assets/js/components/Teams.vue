@@ -45,7 +45,8 @@
                         <div class="panel-block">
                             <div class="control is-grouped">
                                 <p class="control is-expanded">
-                                    <input class="input" type="text" placeholder="Player name" v-model="newPlayer" @keyup.enter="addPlayer()" autofocus>
+                                    <input class="input" :class="{'is-danger': inputEmpty }" type="text" placeholder="Player name" v-model="newPlayer" @keyup.enter="addPlayer()" autofocus>
+                                    <span class="help" :class="{'is-danger': inputEmpty }" v-if="inputEmpty">The name must not be empty.</span>
                                 </p>
                                 <p class="control">
                                     <button class="button is-primary is-outlined" @click="addPlayer()">
@@ -123,7 +124,8 @@
                 teamNumbers: [
                     2,3,4,5,6,7,8
                 ],
-                soundOn: false
+                soundOn: false,
+                inputEmpty: false,
             }
         },
         mounted() {
@@ -134,6 +136,12 @@
                 this.players.splice(index, 1);
             },
             addPlayer() {
+                this.inputEmpty = this.newPlayer == '';
+
+                if (this.inputEmpty) {
+                    return;
+                }
+
                 this.players.push(this.newPlayer);
                 this.newPlayer = '';
             },

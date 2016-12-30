@@ -13,8 +13,10 @@
                         <div class="panel-block">
                             <div class="control is-grouped">
                                 <p class="control is-expanded">
-                                    <input class="input" type="text" placeholder="Civilization name" v-model="newCivilizations" @keyup.enter="addCivilization()" autofocus>
+                                    <input class="input" :class="{'is-danger': inputEmpty }" type="text" placeholder="Civilization name" v-model="newCivilizations" @keyup.enter="addCivilization()" autofocus>
+                                    <span class="help" :class="{'is-danger': inputEmpty }" v-if="inputEmpty">The name must not be empty.</span>
                                 </p>
+
                                 <p class="control">
                                     <button class="button is-primary is-outlined" @click="addCivilization()">
                                         Add
@@ -47,7 +49,8 @@
         props: ['civilizations'],
         data() {
             return {
-                newCivilizations: ''
+                newCivilizations: '',
+                inputEmpty: false,
             }
         },
         methods: {
@@ -56,6 +59,12 @@
                 Event.fire('modifiedCivilization', this.civilizations);
             },
             addCivilization() {
+                this.inputEmpty = this.newCivilizations == '';
+
+                if (this.inputEmpty) {
+                    return;
+                }
+
                 this.civilizations.push(this.newCivilizations);
                 this.newCivilizations = '';
                 Event.fire('modifiedCivilization', this.civilizations);
