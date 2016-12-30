@@ -14,7 +14,34 @@ require('./bootstrap');
  */
 
 Vue.component('teams', require('./components/Teams.vue'));
+Vue.component('civilizations', require('./components/Civilizations.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        civilizations: [
+            'Britons',
+            'Byzanties',
+            'Celts',
+            'Chinese',
+            'Franks',
+            'Goths',
+            'Huns',
+            'Japanese',
+            'Koreans',
+            'Mongols',
+            'Persians',
+            'Saracens',
+            'Spanish',
+            'Teutons',
+            'Turks',
+            'Vikings',
+        ],
+        teamTab: true,
+    },
+    mounted() {
+        Event.listen('modifiedCivilization', function (civilizations) {
+            this.civilizations = civilizations;
+        });
+    }
 });

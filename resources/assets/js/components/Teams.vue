@@ -42,17 +42,6 @@
                             Players
                         </p>
 
-                        <div class="panel-block" v-for="(player, index) in players">
-                            <div class="columns is-gapless">
-                                <div class="column" v-text="player"></div>
-                                <div class="column is-2 has-text-right">
-                                    <span class="icon is-small is-clickable" @click="removePlayer(index)">
-                                        <i class="fa fa-trash"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="panel-block">
                             <div class="control is-grouped">
                                 <p class="control is-expanded">
@@ -63,6 +52,17 @@
                                         Add
                                     </button>
                                 </p>
+                            </div>
+                        </div>
+
+                        <div class="panel-block" v-for="(player, index) in players">
+                            <div class="columns is-gapless">
+                                <div class="column" v-text="player"></div>
+                                <div class="column is-2 has-text-right">
+                                    <span class="icon is-small is-clickable" @click="removePlayer(index)">
+                                        <i class="fa fa-trash"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,26 +106,9 @@
 
 <script>
     export default {
+        props: ['civilizations'],
         data() {
             return {
-                civilizations: [
-                    'Britons',
-                    'Byzanties',
-                    'Celts',
-                    'Chinese',
-                    'Franks',
-                    'Goths',
-                    'Huns',
-                    'Japanese',
-                    'Koreans',
-                    'Mongols',
-                    'Persians',
-                    'Saracens',
-                    'Spanish',
-                    'Teutons',
-                    'Turks',
-                    'Vikings',
-                ],
                 players: [
                     'Nathan',
                     'Rochelle',

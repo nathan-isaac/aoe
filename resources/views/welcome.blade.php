@@ -18,11 +18,13 @@
     <nav class="nav has-shadow">
         <div class="container">
             <div class="nav-left">
-                <a class="nav-item is-tab is-active">Teams</a>
-                <a class="nav-item is-tab">Civilizations</a>
+                <a class="nav-item is-tab" :class="{'is-active': teamTab}" @click="teamTab = true">Teams</a>
+                <a class="nav-item is-tab" :class="{'is-active': !teamTab}" @click="teamTab = false">Civilizations</a>
             </div>
         </div>
     </nav>
 
-    <teams></teams>
+    <teams :civilizations="civilizations" v-if="teamTab"></teams>
+    <civilizations :civilizations="civilizations" v-else></civilizations>
+
 @endsection
