@@ -10,7 +10,7 @@
                 <div class="level-right">
                     <div class="level-item">
                         <p class="control">
-                            <span class="icon" @click="soundOn = !soundOn">
+                            <span class="icon is-clickable" @click="soundOn = !soundOn">
                                 <i class="fa" :class="{'fa-volume-up': soundOn, 'fa-volume-off': !soundOn}"></i>
                             </span>
                         </p>
@@ -46,7 +46,7 @@
                             <div class="columns is-gapless">
                                 <div class="column" v-text="player"></div>
                                 <div class="column is-2 has-text-right">
-                                    <span class="icon is-small" @click="removePlayer(index)">
+                                    <span class="icon is-small is-clickable" @click="removePlayer(index)">
                                         <i class="fa fa-trash"></i>
                                     </span>
                                 </div>
