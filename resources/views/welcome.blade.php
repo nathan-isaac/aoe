@@ -24,7 +24,7 @@
         </div>
     </nav>
 
-    <teams :civilizations="civilizations" v-if="teamTab"></teams>
-    <civilizations :civilizations="civilizations" v-else></civilizations>
+    <teams :civilizations="civilizations" v-show="teamTab"></teams>
+    <civilizations :civilizations="civilizations" v-show="!teamTab"></civilizations>
 
 @endsection
