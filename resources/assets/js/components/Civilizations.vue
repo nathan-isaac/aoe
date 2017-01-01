@@ -6,12 +6,9 @@
                 <div class="column column is-half is-offset-one-quarter">
 
                     <div class="panel">
-                        <div class="panel-heading">
-                            <div class="level">
-                                <div class="level-right">Civilizations</div>
-                                <div class="level-left is-hidden-mobile"><span class="icon is-small is-clickable" @click="refresh()" title="Refresh"><i class="fa fa-refresh"></i></span></div>
-                            </div>
-                        </div>
+                        <p class="panel-heading">
+                            Civilizations
+                        </p>
 
                         <div class="panel-block">
                             <div class="control is-grouped">
@@ -52,13 +49,9 @@
         props: ['civilizations'],
         data() {
             return {
-                backupCivilizations: [],
                 newCivilizations: '',
                 inputEmpty: false,
             }
-        },
-        mounted() {
-            this.backupCivilizations = _.clone(this.civilizations);
         },
         methods: {
             removeCivilization(index) {
@@ -76,9 +69,6 @@
                 this.newCivilizations = '';
                 Event.fire('modifiedCivilization', this.civilizations);
             },
-            refresh() {
-                this.civilizations = _.clone(this.backupCivilizations);
-            }
         }
     }
 </script>
