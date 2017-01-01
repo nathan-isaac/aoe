@@ -158,7 +158,15 @@
                     }
                 });
 
-                this.teams = _.chunk(teamPlayers, this.players.length / this.numberOfTeams);
+                // Get number of players per-team
+                let playersPerTeam = this.players.length / this.numberOfTeams;
+
+                // Loop through each team and add them to the teams array
+                for (let i = 0; i < this.players.length; i += playersPerTeam) {
+                    this.teams.push(
+                        teamPlayers.slice(i, i+playersPerTeam)
+                    );
+                }
 
                 if (this.soundOn) {
                     this.playTaunt();
