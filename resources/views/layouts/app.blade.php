@@ -31,5 +31,9 @@
 
     <!-- Scripts -->
     <script src="{{ elixir('js/app.js') }}"></script>
+    
+    @if(app()->environment('production'))
+        @include('partials.analytics')
+    @endif
 </body>
 </html>
